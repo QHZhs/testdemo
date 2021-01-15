@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <el-container>
-      <el-header><i class="el-icon-arrow-left"></i>患者列表</el-header>
+      <el-header>患者列表</el-header>
       <el-main>
        <el-row>
          <el-col id="col-1">
@@ -197,9 +197,6 @@ export default {
   }
   #col-1{
     margin-right: 5px;
-  }
-  .el-icon-arrow-left{
-        float: left;
   }
   .el-main{
     padding: 5px !important;

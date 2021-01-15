@@ -1,34 +1,39 @@
 <template>
 <div class='self-detail'>
      <el-container>
-      <el-header><i class="el-icon-arrow-left"></i>微信昵称（真实姓名）血糖数据</el-header>
+      <el-header><i class="el-icon-arrow-left" @click="leave()"></i>微信昵称（真实姓名）血糖数据</el-header>
       <el-main>
-          <table>
-          <tr>
-            <th >
-               日期
-            </th>
-             <th>
-                时间
-            </th>
-             <th>
-               时段
-            </th>
-             <th>
-               血糖值（mmol/L）
-            </th>
-          </tr>
-          <tr  v-for="item in tableData" :key="item.date">
-              <td  v-text="item.date">                
-              </td>
-              <td  v-text="item.time">               
-              </td>
-              <td v-text="item.shiduan">             
-              </td>
-              <td  v-text="item.value">
-              </td>
-          </tr>
-        </table>
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+              <el-tab-pane label="血糖数据" name="first">
+                <table>
+                  <tr>
+                    <th >
+                      日期
+                    </th>
+                    <th>
+                        时间
+                    </th>
+                    <th>
+                      时段
+                    </th>
+                    <th>
+                      血糖值（mmol/L）
+                    </th>
+                  </tr>
+                  <tr  v-for="item in tableData" :key="item.date">
+                      <td  v-text="item.date">                
+                      </td>
+                      <td  v-text="item.time">               
+                      </td>
+                      <td v-text="item.shiduan">             
+                      </td>
+                      <td  v-text="item.value">
+                      </td>
+                  </tr>
+              </table>
+              </el-tab-pane>
+              <el-tab-pane label="血糖图谱" name="second">血糖图谱</el-tab-pane>
+          </el-tabs>
       </el-main>
     </el-container>
 </div>
@@ -40,6 +45,7 @@ export default {
 name:'self-detail',
 data() {
 return {
+ activeName: 'first',
  tableData: [{
             date: '2016-05-02',
             time: '10:05',
@@ -66,7 +72,12 @@ return {
 computed: {},
 watch: {},
 methods: {
-
+      leave(){
+        this.$router.push("/");
+      },
+       handleClick(tab, event) {
+        console.log(tab, event);
+      }
 },
 created() {
 
@@ -80,7 +91,7 @@ mounted() {
 .el-header{
   height: 40px !important;
   padding: 10px;
-  background-color: #2f45cc;
+  background-color: #485fea;
   color: #ffffff;
 }
  .el-icon-arrow-left{
@@ -91,7 +102,7 @@ mounted() {
       width:100%;
   }
   table tr th{
-      background-color: #2f45cc;
+      background-color: #485fea;
        color: #ffffff;
   }
   table tr td{
