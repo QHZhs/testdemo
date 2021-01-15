@@ -88,6 +88,7 @@ mounted() {
   }
   table{
       font-size: 14px;
+      width:100%;
   }
   table tr th{
       background-color: #2f45cc;
@@ -95,5 +96,8 @@ mounted() {
   }
   table tr td{
       text-align: center;
+  }
+  .el-main{
+      padding: 0px;
   }
 </style>
