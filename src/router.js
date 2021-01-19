@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import SelfDetailInformation from './components/SelfDetailInformation.vue'
 import HelloWorld from './components/HelloWorld.vue'
+import loginInform from './components/loginInform.vue'
+import ChooseHosipital from './components/ChooseHosipital.vue'
 const routes=[
     {
         path:"/SelfDetailInformation",
@@ -12,7 +14,15 @@ const routes=[
     {
         path:"/",
         component:HelloWorld,
-    }
+    },
+    {
+        path:"/loginInform",
+        component:loginInform,
+    },
+    {
+        path:"/ChooseHosipital",
+        component:ChooseHosipital,
+    },
 ]
 
 const router=new VueRouter({

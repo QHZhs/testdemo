@@ -24,4 +24,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.el-cascader-menu{
+   width: 120px !important;
+   min-width: 100px;
+}
 </style>

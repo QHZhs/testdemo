@@ -142,7 +142,7 @@ export default {
     },
       getData(){
               //请求数据 
-              var api='http://192.168.1.56/services/RestServices/yundihealth/UserManage/getUserByCondition?studioId=000500380001000100010001'; 
+              var api='http://192.168.1.56/services/RestServices/yundihealth/userManage/getUserByCondition?studioId=000500380001000100010001'; 
               this.$http.get(api).then((response)=>{
                     console.log(response);
                     //注意this指向
