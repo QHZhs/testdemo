@@ -34,7 +34,8 @@
                  <el-form-item label="验证码" prop="testCode" v-if="yanzhenma">
                     <el-input v-model="ruleForm.testCode"></el-input>
                 </el-form-item>
-                <el-button type="primary" @click="submitForm('ruleForm')" id='sure'>提交</el-button><br><br><br>
+                 <el-checkbox v-model="checked">阅读并同意<router-link to="/UserTip">《用户使用协议》</router-link><router-link to="/SecretPolicy">《隐私权政策》</router-link></el-checkbox>
+                <el-button type="primary" @click="submitForm('ruleForm')" id='sure'>提交审核</el-button><br><br><br>
                 <el-tag>提交审核之后，会有工作人员与您联系。请保持手机畅通。</el-tag>
             </el-form>
         </el-main>
@@ -48,6 +49,7 @@ export default {
 name:'login-inform',
 data() {
 return {
+        checked:'',
         yanzhenma:false,
         ruleForm: {
           hospitalName:'',
@@ -85,7 +87,7 @@ return {
                     }
                 var params1 = JSON.stringify(params2)
             if (valid) {
-                this.$http.post('http://192.168.1.56/services/RestServices/yundihealth/staffManage/saveWXStaffExamine',params1,{emulateJSON: true}).then((res)=>{
+                this.$http.post('/api/services/RestServices/yundihealth/staffManage/saveWXStaffExamine',params1,{emulateJSON: true}).then((res)=>{
                       if(res.sybStatus=="000"){
                                console.log("提交成功！")
                       }
@@ -128,8 +130,13 @@ return {
 }
 #sure{
     margin-left: 25px;
+    margin-top: 30px;
 }
 .el-tag{
         padding: 0 2px !important;
+}
+a{
+    color:#409EFF;
+    text-decoration: none;
 }
 </style>

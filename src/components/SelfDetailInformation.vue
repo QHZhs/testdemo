@@ -34,6 +34,7 @@
               </el-tab-pane>
               <el-tab-pane label="血糖图谱" name="second">血糖图谱</el-tab-pane>
           </el-tabs>
+          <el-button type="primary" @click="jumpback()">注册</el-button>
       </el-main>
     </el-container>
 </div>
@@ -77,6 +78,9 @@ methods: {
       },
        handleClick(tab, event) {
         console.log(tab, event);
+      },
+      jumpback(){
+        this.$router.push({path:'/loginInform'})
       }
 },
 created() {

@@ -33,7 +33,7 @@
           prefix-icon="el-icon-search"
           v-model="input2">
        </el-input>
-        <table  v-for="item in list" :key="item.name" @click="selfData()">
+        <table  v-for="item in list" :key="item.phone" @click="selfData()">
           <tr>
              <td rowspan="2" v-show="isShow"  @click.stop="selfData2()"  style=' width: 10%;'>
                <input type="checkbox">
@@ -142,11 +142,11 @@ export default {
     },
       getData(){
               //请求数据 
-              var api='http://192.168.1.56/services/RestServices/yundihealth/userManage/getUserByCondition?studioId=000500380001000100010001'; 
-              this.$http.get(api).then((response)=>{
+              var api='/api/services/RestServices/yundihealth/userManage/getUserByCondition?studioId=000500380001000100010001'; 
+             this.$axios.get(api).then((response)=>{
                     console.log(response);
                     //注意this指向
-                    this.list=response.body.sybData; 
+                    this.list=response.data.sybData; 
               },function(err){
                     console.log(err);
               })
